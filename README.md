@@ -41,3 +41,7 @@ You can have certain groups "checked" by default, by adding the checked paramter
 ## Modifying index.html 
 
 Assuming you've created a new json file (let's call it file.js), you'll need to modify one line in index.html. Near the top of the file, you'll notice the comment `INSERT MEMORY SOURCE HERE`. Replace the following js file with file.js, and you're done!
+
+## PS
+
+This was last modified in ~2006, pre-CSS3. So don't judge.
