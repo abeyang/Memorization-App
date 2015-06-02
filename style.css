@@ -1,0 +1,291 @@
+/*	******************************************************
+					   Global Layout & Design
+	****************************************************** */
+
+/* elements */
+
+html, body, #body {
+	min-height: 100%;
+	height: 100%;
+}
+
+body { 
+	background-color: #fff; 
+	margin: 0;
+}
+
+pre {
+	background-color: #eee;
+	padding: 10px;	
+}
+
+a, a:hover, a:visited { text-decoration: none; }
+
+del { background-color: #ffe1e1; }
+ins { background-color: #e1ffe1; }
+
+dt {
+	float: left;
+	width: 200px;
+	text-align: right;
+	font-weight: bold;
+}
+dd {
+	margin-left: 220px;
+	margin-bottom: 20px;
+}
+
+.changelog dt, .stats dt { width: 80px; }
+.changelog dd, .stats dd { margin-left: 100px; }
+
+/* ids */
+
+#header_outer { 
+	background: #eee url(bg_header.jpg) repeat-x top left; 
+}
+
+#header, #content, #footer {
+	width: 		680px;
+	margin: 	0 auto;
+}
+
+#content_outer { background-color: #fff; height: auto; margin-top: 20px; }
+#content { 
+	min-height: 300px; 
+	height: auto !important;
+	height: 400px; /* IE6 doesn't support min-height */
+}
+
+#checklist table { width: 100%; }
+#checklist table td { vertical-align: top; width: 33%; }
+
+#footer_outer {
+	width: 100%;
+/*	border-top: 1px dotted #aaa; */
+	background-color: #eee;
+	border-bottom: 5px solid #ccc;
+	padding: 7px 0;
+	margin-top: 10px;
+	clear: both;
+}
+
+#version { float: right; }
+
+.note, .note p, .note div, .note td {
+	color: #999;
+	font-size: 11px;
+}
+
+.note a, .note a:visited { color: #666; text-decoration: underline;}
+#shortcuts, #tip { margin-top: 7px; }
+
+/* navigation */
+
+#nav {
+	position: relative;		/* necessary for ie to float 'on top' of subnav */
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+#nav a {
+	text-decoration: none;
+	text-align: 	center;
+	border: 		1px solid #ccc;
+	border-bottom: 	0;
+	padding: 		20px 30px;
+	color: 			#aaa;
+	font-size: 		15px;
+	font-variant: 	small-caps;
+	background: 	#fafafa;
+}
+#nav a:hover {
+	background: 	#fff;
+	color: 			#999;
+	border: 		1px solid #999;
+	border-bottom: 	0;
+}
+#nav a#review_button, #nav a#stats_button { padding: 20px 25px; }
+#nav a.arrow { 
+	padding: 20px 10px !important;
+	padding: 19px 10px;
+}
+
+#subnav { 
+	margin: 0;
+	padding: 2px;
+	border-top: 2px solid #ccc;
+	font-size: 14px;
+	color: #ccc;
+	background: #eee; 
+	text-align: center;
+}
+#subnav div { margin-top: 5px; }
+#subnav a, #subnav span { padding: 3px 15px 3px 15px; }
+#subnav a.active { background-color: #fff;}
+
+#notice { color: #f00; }
+
+/* common classes */
+
+.greybox {
+	margin: 10px 0;
+	padding: 12px 8px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-left: 0;
+	border-right: 0;
+	text-align: center;
+}
+
+.infobox {
+	margin: 0 15px;
+	padding: 12px 8px;
+	background-color: #fbffd6;
+	border: 1px solid #ee3;
+	font-size: 13px;
+	color: #333;
+	width: 200px;
+}
+.home #content .infobox a {
+	color: #18ac04;
+}
+
+.alignCenter { text-align: center; }
+.alignRight { text-align: right; }
+.floatLeft { float: left; }
+.floatRight { float: right; }
+.clearAll { clear: both; }
+#checklist p.strong { color: #222; }
+.highlight { background-color: #ffa; }
+.faded, .faded p, .faded li { color: #aaa;}
+.pre {
+	white-space: pre; /* CSS2 */
+	overflow: auto;
+}
+.disabled { background-color: #eee; }
+textarea { margin: 10px 0; }
+table.shortcut { border: 1px solid #ddd; margin-bottom: 10px;}
+table.shortcut td { padding: 5px; }
+
+/*	******************************************************
+					Subsite Layout & Design
+	****************************************************** */
+
+.home #subnav, .home #footer_outer { border-color: #d99a2f; background: #fdf5e8; }
+.home #nav a#home_button { border-color: #d99a2f; background: #fdf5e8; border-bottom: 3px solid #fdf5e8; color: #d99a2f; }
+.home #subnav a, .home #content a { color: #d99a2f; }
+
+.review #subnav, .review #footer_outer { border-color: #28a822; background: #e5f4e4; }
+.review #nav a#review_button { border-color: #28a822; background: #e5f4e4; border-bottom: 3px solid #e5f4e4; color: #28a822; }
+.review #subnav a { color: #28a822; }
+.review #content a { color: #333; }
+.review #content a:hover { text-decoration: underline; }
+	
+.quiz #subnav, .quiz #footer_outer { border-color: #285fc4; background: #e5ecf8; }
+.quiz #nav a#quiz_button { border-color: #285fc4; background: #e5ecf8; border-bottom: 3px solid #e5ecf8; color: #285fc4; }
+.quiz #subnav a, .quiz #content a { color: #285fc4; }
+
+.stats #subnav, .stats #footer_outer { border-color: #4f257f; background: #eae4ef; }
+.stats #nav a#stats_button { border-color: #4f257f; background: #eae4ef; border-bottom: 3px solid #eae4ef; color: #4f257f; }
+.stats #subnav a, .stats #content a { color: #4f257f; }
+.stats #content .active a { color: #fff; background-color: #4f257f; }
+
+/* home */
+.home .action_f .o, .home .action_f .t { display: none; }
+.home .action_o .f, .home .action_o .t { display: none; }
+.home .action_t .f, .home .action_t .o { display: none; }
+
+.home .o div { margin-left: 10px; padding: 8px 0; border-bottom: 1px solid #ddd; }
+
+/* review */
+.r2 dt {
+	float: none;
+	text-align: left;
+}
+.r2 dd {
+	margin-left: 0;
+}
+
+.r1 .note { text-align: center; }
+
+.review .highlight { background-color: #ffc; }
+
+/* quiz */
+.quiz_console { float: left; margin-top: 2px; }
+.quiz_console a { padding-right: 10px; }
+
+.quiz .header {
+	margin: 5px 0;
+	padding: 5px;
+	padding-bottom: 0;
+	background-color: #f2f2f2;
+}
+
+.quiz .greybox { padding: 5px; text-align: right; color: #999; }
+.quiz .highlight { background-color: #ff6; }
+
+.main { margin-left: 200px; }
+.sidebar {
+	float: left;
+	width: 180px;
+	font-size: 12px;
+}
+
+.action_r .main { margin-left: 260px; }
+.action_r .sidebar { width: 240px; }
+
+.quiz .action_n .r { display: none; }
+.quiz .action_r .n { display: none; }
+
+/* stats */
+.stats #stats_cards span { line-height: 120%; color: #999; }
+.stats .action_n .r, .stats .action_n .c { display: none; }
+.stats .action_r .n, .stats .action_r .c { display: none; }
+.stats .action_c span .n, .stats .action_c span .r { display: none; }
+
+/*	******************************************************
+						  Typography
+	****************************************************** */
+	
+body, p, ol, ul, td {
+	font-family: verdana, arial, helvetica, sans-serif;
+	color: #333; 
+}
+
+p, ol, ul, td, div {
+  font-size:   14px;
+  line-height: 18px;
+}
+textarea {
+	color: #666;
+	font-size: 14px;
+}
+input.disabled { color: #333; }
+
+.normalStyle { font-style: normal; font-weight: normal; }
+
+.microFont { font-size: 9px; }
+.tinyFont { font-size: 11px; }
+.smallFont { font-size: 12px; }
+
+#checklist p { font-size: 18px; color: #666; }
+
+/*#quizhint_sidebar, #quizhint_sidebar div { font-size: 11px; color: #999; }*/
+
+/*	******************************************************
+						Clearfix hack
+	****************************************************** */
+                     
+.clearfix:after {                                                                                                      
+        content: ".";                                                                                                  
+        display: block;                                                                                                
+        height: 0;                                                                                                     
+        clear: both;                                                                                                   
+        visibility: hidden;                                                                                            
+}                                                                                                                      
+                                                                                                                       
+.clearfix {display: inline-block;}                                                                                     
+                                                                                                                       
+/* Hides from IE-mac \*/                                                                                               
+* html .clearfix {height: 1%;}                                                                                         
+.clearfix {display: block;}                                                                                            
+/* End hide from IE-mac */                                                                                             

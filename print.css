@@ -1,0 +1,11 @@
+body, p, ol, ul, td {
+	color: #333; 
+}
+p, ol, ul, td, div {
+  font-size:   12pt;
+  line-height: 16pt;
+}
+#header_outer { display: none; }
+#footer_outer { visibility: hidden; }
+
+.note { display: none; }

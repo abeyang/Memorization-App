@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<title>Memorization</title>
+	<link rel="stylesheet" href="style.css" type="text/css" media="all" charset="utf-8" />
+	<link rel="stylesheet" href="print.css" type="text/css" media="print" charset="utf-8" />
+
+	<!-- INSERT MEMORY SOURCE HERE: -->
+	<script src="cards/nt_verses.js" type="text/javascript"></script>
+
+	<script src="prototype.js" type="text/javascript"></script>
+	<script src="xindiff.js" type="text/javascript"></script>
+	<script src="keybind.js" type="text/javascript"></script>
+
+	<script src="memory.js" type="text/javascript"></script>
+	<script type="text/javascript" charset="utf-8">
+		var m;
+		Event.observe(window, 'load', function(e) { m = new Memory(); });
+	</script>
+</head>
+
+<body>
+<div id="body">
+	<div id="header_outer">
+		<div id="header">
+
+			<div id="checklist">
+			</div>
+			
+			<div id="nav" class="alignCenter">
+				<a href="javascript:;" id="home_button" onclick="m.render_controller('home');">Home</a>
+				<a href="javascript:;" id="review_button" onclick="m.render_controller('review');">Review</a>
+				<a href="javascript:;" id="quiz_button" onclick="m.render_controller('quiz');">Quiz</a>
+				<a href="javascript:;" id="stats_button" onclick="m.render_controller('stats');">Stats</a>
+			</div>
+		</div> <!-- end #header -->
+		
+		<div id="subnav">
+			<div id="home_subnav" style="display:none;">
+				<a id="home_f_subnav" href="javascript:;" onclick="m.render_action('f');" class="active">Frontpage</a>
+				<a id="home_o_subnav" href="javascript:;" onclick="m.render_action('o');">Options</a>
+				<!-- <a id="home_t_subnav" href="javascript:;" onclick="m.render_action('t');">Tips</a> -->
+			</div>
+			<div id="review_subnav" style="display:none;">
+				<a id="review_r1_subnav" href="javascript:;" onclick="m.render_action('r1');" class="active">1</a>
+				<a id="review_r2_subnav" href="javascript:;" onclick="m.render_action('r2');">2</a>
+			</div>
+			<div id="quiz_subnav" style="display:none;">
+				<a id="quiz_n_subnav" href="javascript:;" onclick="m.render_action('n');" class="active">Normal</a>
+				<a id="quiz_r_subnav" href="javascript:;" onclick="m.render_action('r');">Reverse</a>
+			</div>
+			<div id="stats_subnav" style="display:none;">
+				<a id="stats_n_subnav" href="javascript:;" onclick="m.render_action('n')" class="active">Normal</a> 
+				<a id="stats_r_subnav" href="javascript:;" onclick="m.render_action('r')">Reverse</a>
+				<a id="stats_c_subnav" href="javascript:;" onclick="m.render_action('c')">Combined</a>
+			</div>
+		</div>		
+
+	</div> <!-- end #header_outer -->
+	
+	<div id="content_outer">
+	<div id="content">
+		
+		<div id="notice"> </div> 
+
+		<div id="preload">
+			<h2>Uh oh.. passages haven't been downloaded...</h2>
+		</div>
+
+		<!-- Main -->
+		<div id="home_content" style="display:none;" class="action_f">
+			<div class="f">
+				<h1>Index cards are so 2006.</h1>
+		
+				<div class="infobox floatRight">
+					<strong><a target="_new" href="http://code.google.com/p/memorization/downloads/list">Download</a></strong>
+					and <a target="_new" href="http://code.google.com/p/memorization/wiki/Readme">learn</a> how to run this app from your computer.
+				</div>
+				
+				<p>If you are reading this, then <span class="highlight">you have successfully downloaded all the passages onto your browser</span>. Now, you go anywhere without internet and this page will still be fully functional. Just don't close this page, refresh, hit the back button, or turn off your computer.</p>
+			
+				<p>After you've <a href="javascript:;" onclick="m.render_controller('quiz');">quizzed</a> yourself a few times, make sure you check out the <a href="javascript:;" onclick="m.render_controller('stats');">stats section</a>.
+				<br />(But don't take your score <em>too</em> seriously...)</p>
+			
+				<p>Finally, <a href="javascript:;" onclick="m.render_action('o');">more options</a> are located in another tab in this (Home) section and <a href="javascript:;" onclick="$('shortcuts').toggle();">keyboard shortcuts</a> in the footer below.</p>
+			</div>
+			
+			<div class="o">
+				<h2>Checklist</h2>
+				<div id="checklist_options"><input type="checkbox" onclick="m.toggleAllGroups(this.checked);" /> Select all groups</div>
+				<div><a href="javascript:;" onclick="m.toggleChecklist();">Show/hide groups</a>
+				<br /><span class="note">This can also be achieved by using the shortcut key: ctrl + y (mac) / alt + y (pc)</span></div>
+			</div>
+			
+			<div class="t">
+				Tips!
+			</div>
+		</div>
+
+		<!-- Review -->
+		<div id="review_content" style="display:none;" class="r1">
+			<div class="note"><em>Clicking on the reference verse will highlight both passage and reference.</em></div>
+		</div>
+
+		<!-- Quiz -->
+		<div id="quiz_content" style="display:none;" class="action_n">
+			<div class="sidebar">
+				<div id="quiz_n_sidebar" class="n"> </div> 
+				<div id="quiz_r_sidebar" class="r"> </div>
+
+				<div id="quiz_n_hint_sidebar" class="n note" style="display:none;">
+					<a href="javascript:;" onclick="m.toggleSidebar(true);">Show sidebar</a>
+					<br />(<a href="javascript:;" onclick="$('info_sidebar').toggle();">where did the sidebar go?</a>)
+					<div id="info_sidebar" style="display:none;">
+						The sidebar disappears when you select a <a href="javascript:;" onclick="m.randomCard();">random</a> passage.
+						<br />(ctrl + L for mac, alt + L for PC)
+						<br />The idea is that you will not rely too heavily on the order
+						in which they are shown.
+					</div>
+				</div>
+				<div id="quiz_r_hint_sidebar" class="r note" style="display:none;"> </div>
+			</div>	
+	
+			<div id="quiz_n_main" class="main">
+				<form action="" id="group_form" method="get" name="group_form">
+					<input id="quiz_n_header" class="n disabled pre" type="text" size="57" disabled="disabled" />
+					<input id="textinput" class="r" type="text" size="50" />
+
+					<textarea cols="49" id="quiz_r_header" class="r disabled pre" rows="6" readonly="readonly"> </textarea>
+					<textarea cols="56" id="textarea" class="n" rows="6"> </textarea>
+				
+					<div class="greybox smallFont">
+						<span class="quiz_console">
+							<a href="javascript:;" onclick="m.prevCard();">&laquo;previous</a>
+							<a href="javascript:;" onclick="m.randomCard();">random</a>
+							<a href="javascript:;" onclick="m.nextCard();">next&raquo;</a>
+						</span>
+						<span id="quiz_n_clear" class="n">clear comparison</span>
+						<span id="quiz_r_clear" class="r">clear comparison</span>
+						<input onclick="javascript:m.checkForm()" value="Check" type="button" />		
+					</div>
+				
+				</form>
+
+				<div id="quiz_n_result" class="n"> </div>		
+				<div id="quiz_r_result" class="r"> </div>		
+			</div>
+				
+		</div> <!-- end #quiz_content -->
+		
+		<!-- Stats -->
+		<div id="stats_content" style="display:none;" class="action_n">
+			<em class="note">The bigger they are, the more you need to study!</em>
+			<div id="stats_cards" class="greybox"> </div>
+			<div id="stats_results" style="display:none;"> 
+				
+			</div>
+		</div>
+	</div> <!-- end #content -->
+	</div> <!-- end #content_outer -->
+	
+	<div id="footer_outer">
+		<div id="footer" class="note">
+			<div id="version">v. ??</div>
+			All pages are printer friendly. Learn more about 
+			<a href="javascript:;" onclick="$('shortcuts').toggleAndScroll();">keyboard shortcuts</a> and
+			the <a href="javascript:;" onclick="$('tip').toggleAndScroll();">quiz/stats section</a>.	
+			<br />Webapp designed &amp; developed by <a href="http://www.gracepointonline.org" target="_new">Gracepoint Fellowship Church</a>.
+
+			<div id="shortcuts" style="display:none;">
+				<div class="sidebar">
+					<strong>Keyboard shortcuts</strong>
+				</div>
+				<div class="main">
+					<table>
+						<tr><td colspan="2"><strong>Main Navigation</strong></td></tr>
+						<tr><td>ctrl + h (mac) / alt + h (pc)</td><td>Main</td></tr>
+						<tr><td>ctrl + r (mac) / alt + r (pc)</td><td>Review</td></tr>
+						<tr><td>ctrl + q (mac) / alt + q (pc)</td><td>Quiz</td></tr>
+						<tr><td>ctrl + s (mac) / alt + s (pc)</td><td>Stats</td></tr>
+						<tr><td>ctrl + y (mac) / alt + y (pc)</td><td>Show/Hide Checklist Menu</td></tr>
+
+						<tr><td colspan="2"><strong>Quiz Navigation</strong></td></tr>
+						<tr><td>ctrl + j (mac) / alt + j (pc)</td><td>previous passage</td></tr>
+						<tr><td>ctrl + k (mac) / alt + k (pc)</td><td>next passage</td></tr>
+						<tr><td>ctrl + l (mac) / alt + l (pc)</td><td>random passage</td></tr>
+
+						<tr><td colspan="2"><strong>Quiz Controls</strong></td></tr>
+						<tr><td>ctrl + enter (mac) / alt + enter (pc)</td><td>check</td></tr>
+						<tr><td>ctrl + f (mac) / alt + f (pc)</td><td>focus on text area</td></tr>
+						<tr><td>ctrl + x (mac) / alt + x (pc)</td><td>clear comparison</td></tr>
+					</table>
+				</div>			
+			</div>
+			
+			<div id="tip" style="display:none;">
+				<div class="sidebar">
+					<strong>Quiz/Stats Tip</strong>
+				</div>
+				<div class="main">
+					Appending "..." will only compare your answers up to that part.
+					<br />For example, typing "The quick brown fox jumped..." will run a check only on the 
+					first 5 words.
+					<br />In addition, doing this will <em>not</em> enter your result in the stats section.
+				
+					<p>Speaking of stats, to clear your results, simply refresh the page.</p>
+				</div>
+			</div>
+		</div>
+		<input id="dummy" type="text" size="1" style="display:none;" />
+	</div> <!-- end #footer_outer -->
+
+</div> <!-- end #body -->
+</body>
+</html>
